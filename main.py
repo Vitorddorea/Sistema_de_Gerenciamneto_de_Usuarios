@@ -1,4 +1,11 @@
+import os
 from datetime import date
+
+def limparTela():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def pausar():
+    input('\nPressione ENTER para continuar...')
 
 def titulos(txt):
     """
@@ -68,6 +75,8 @@ def cadastrarUsuarios(usuarios):
     :param usuarios: lista de usuários
     """
 
+    limparTela()
+
     titulos('Cadastrar Usuários')
 
     usuario = {}
@@ -82,12 +91,16 @@ def cadastrarUsuarios(usuarios):
 
     print('Usuário cadastrado!')
 
+    pausar()
+
 def listarUsuarios(usuarios):
     """
     Lista todos usuários cadastrados
     :param usuarios: lista de usuários
     """
 
+    limparTela()
+    
     titulos('Usuários cadastrados')
 
     if not usuarios:
@@ -96,15 +109,20 @@ def listarUsuarios(usuarios):
         for usuario in usuarios:
             print(f'ID: {usuario["ID"]} | Nome: {usuario["Nome"]} | Idade: {usuario["Idade"]} anos')
 
+    pausar()
+
+
 def atualizarUsuario(usuarios):
     """
     Atualiza um usuário com base no seu ID
     :param usuarios: lista de usuários
     """
 
-    titulos('Atualizar usuários')
-
+    limparTela()
+    
     listarUsuarios(usuarios)
+    
+    titulos('Atualizar usuários')
 
     opcao = lerInt('Que usuário você deseja atualizar? ID ')
 
@@ -123,16 +141,21 @@ def atualizarUsuario(usuarios):
     else:
         print('Usuário não encontrado.')
 
+    pausar()
+
 def deletarUsuario(usuarios):
     """
     Deleta um usuário com base no seu ID
     :param usuarios: lista de usuários
     """
+
+    limparTela()
     
     titulos('Deletar usuário')
 
     if not usuarios:
         print('Nenhum usuários cadastrado!')
+        
     else:
         listarUsuarios(usuarios)
 
@@ -141,12 +164,15 @@ def deletarUsuario(usuarios):
         for usuario in usuarios:
             if usuario['ID'] == opcao:
                 usuarios.remove(usuario)
+        
+        print(f'Usuário do ID {opcao} deletado!')
 
-        print('Usuário do ID {opcao} deletado!')
+    pausar()
     
 usuarios = []
 
 while True:
+    limparTela()
     menu()
 
     while True:
