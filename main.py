@@ -104,6 +104,10 @@ def atualizarUsuario(usuarios):
 
     titulos('Atualizar usuários')
 
+    listarUsuarios(usuarios)
+
+    opcao = lerInt('Que usuário você deseja atualizar? ID ')
+
     encontrado = False
 
     for usuario in usuarios:
