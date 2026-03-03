@@ -104,7 +104,7 @@ def listarUsuarios(usuarios):
     titulos('Usuários cadastrados')
 
     if not usuarios:
-        print('Nenhum usuários cadastrado!')
+        print('Nenhum usuário cadastrado!')
     else:
         for usuario in usuarios:
             print(f'ID: {usuario["ID"]} | Nome: {usuario["Nome"]} | Idade: {usuario["Idade"]} anos')
@@ -117,14 +117,12 @@ def atualizarUsuario(usuarios):
     Atualiza um usuário com base no seu ID
     :param usuarios: lista de usuários
     """
-
-    limparTela()
     
     listarUsuarios(usuarios)
     
     titulos('Atualizar usuários')
 
-    opcao = lerInt('Que usuário você deseja atualizar? ID ')
+    opcao = lerInt('Qual usuário você deseja atualizar? ID: ')
 
     encontrado = False
 
@@ -148,24 +146,24 @@ def deletarUsuario(usuarios):
     Deleta um usuário com base no seu ID
     :param usuarios: lista de usuários
     """
-
-    limparTela()
+    
+    listarUsuarios(usuarios)
     
     titulos('Deletar usuário')
 
-    if not usuarios:
-        print('Nenhum usuários cadastrado!')
-        
-    else:
-        listarUsuarios(usuarios)
+    opcao = lerInt('Qual usuário você deseja deletar? ID: ')
 
-        opcao = lerInt('Qual usuário você deseja deletar? ID: ')
-
-        for usuario in usuarios:
-            if usuario['ID'] == opcao:
-                usuarios.remove(usuario)
-        
+    encontrado = False
+    for usuario in usuarios:
+        if usuario['ID'] == opcao:
+            usuarios.remove(usuario)
+            encontrado = True
+            break
+    
+    if encontrado:
         print(f'Usuário do ID {opcao} deletado!')
+    else:
+        print('Usuário não encontrado.')
 
     pausar()
     
