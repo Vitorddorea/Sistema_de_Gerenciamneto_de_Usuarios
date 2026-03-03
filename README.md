@@ -1,4 +1,4 @@
-# 🧑‍💻 Sistema de Cadastro de Usuários (CLI)
+# Sistema de Gerenciamento de Usuários – Python CLI
 
 Projeto desenvolvido em Python com foco em lógica de programação e simulação de operações de banco de dados (CRUD).
 
